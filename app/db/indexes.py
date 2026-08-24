@@ -68,4 +68,18 @@ async def create_mongo_indexes():
     ]
     await db["sessions"].create_indexes(session_indexes)
 
+    # Resumes Collection Indexes
+    resume_indexes = [
+        IndexModel([("user_id", ASCENDING)], name="idx_resumes_user_id"),
+        IndexModel([("updated_at", ASCENDING)], name="idx_resumes_updated_at")
+    ]
+    await db["resumes"].create_indexes(resume_indexes)
+
+    # Resume Files Collection Indexes
+    resume_file_indexes = [
+        IndexModel([("resume_id", ASCENDING), ("user_id", ASCENDING)], name="idx_resume_files_resume_user"),
+        IndexModel([("created_at", ASCENDING)], name="idx_resume_files_created_at")
+    ]
+    await db["resume_files"].create_indexes(resume_file_indexes)
+
     logger.info("MongoDB indexes successfully created.")

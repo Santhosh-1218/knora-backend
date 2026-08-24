@@ -21,6 +21,8 @@ async def setup_test_database():
     await db_manager.db["users"].delete_many({})
     await db_manager.db["otp_verifications"].delete_many({})
     await db_manager.db["sessions"].delete_many({})
+    await db_manager.db["resumes"].delete_many({})
+    await db_manager.db["resume_files"].delete_many({})
 
     # Initialize indexes
     try:
@@ -34,6 +36,8 @@ async def setup_test_database():
     await db_manager.db["users"].delete_many({})
     await db_manager.db["otp_verifications"].delete_many({})
     await db_manager.db["sessions"].delete_many({})
+    await db_manager.db["resumes"].delete_many({})
+    await db_manager.db["resume_files"].delete_many({})
 
 
 @pytest.fixture

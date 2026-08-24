@@ -60,6 +60,15 @@ class Settings(BaseSettings):
     OTP_RESEND_COOLDOWN_SECONDS: int = 60
     ENABLE_DEV_OTP_LOGGING: bool = True
 
+    # Cloudflare R2 Storage
+    CLOUDFLARE_R2_ACCOUNT_ID: str = ""
+    CLOUDFLARE_R2_ACCESS_KEY_ID: str = ""
+    CLOUDFLARE_R2_SECRET_ACCESS_KEY: str = ""
+    CLOUDFLARE_R2_API_TOKEN: str = ""
+    CLOUDFLARE_R2_ENDPOINT_URL: str = ""
+    CLOUDFLARE_R2_BUCKET_NAME: str = "wwi-resumes"
+    CLOUDFLARE_R2_PUBLIC_DOMAIN: str = ""
+
 
 settings = Settings()
 # Force uvicorn reloader to pick up real Google OAuth keys from .env

@@ -16,6 +16,7 @@ from app.db.indexes import create_mongo_indexes
 from app.db.mongodb import close_mongo_connection, connect_to_mongo
 from app.routes.auth.router import auth_router
 from app.routes.carousel import carousel_router, admin_carousel_router
+from app.routes.resume import resume_router
 from app.schemas.response import APIResponse
 
 
@@ -62,6 +63,7 @@ app.add_exception_handler(Exception, global_exception_handler)
 app.include_router(auth_router)
 app.include_router(carousel_router)
 app.include_router(admin_carousel_router)
+app.include_router(resume_router)
 
 
 @app.get("/", tags=["Health Check"])
